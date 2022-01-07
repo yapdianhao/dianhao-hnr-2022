@@ -1,25 +1,35 @@
-import logo from './logo.svg';
+import * as React from 'react';
 import './App.css';
+import tracks from "./Tracks";
+import AudioPlayer from './components/AudioPlayer';
+import MousePositionTracker from './components/MousePositionTracker';
+import BlueBird from './components/BlueBird';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [isFinding, setIsFinding] = React.useState(false);
+    const [found, setFound] = React.useState(false);
+    const randomXPos = Math.floor(Math.random() * window.innerWidth);
+    const randomYPos = Math.floor(Math.random() * window.innerHeight);
+
+    return (
+        <div>
+        <AudioPlayer 
+            tracks={tracks} 
+            iconXPos={randomXPos} 
+            iconYPos={randomYPos} 
+            isFinding={isFinding} 
+            setIsFinding={setIsFinding}
+        />
+        <BlueBird 
+            xPos={randomXPos} 
+            yPos={randomYPos} 
+            isFinding={isFinding} 
+            setIsFinding={setIsFinding} 
+            found={found}
+            setFound={setFound}
+        />
+        </div>
+    );
 }
 
 export default App;
