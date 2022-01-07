@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './App.css';
 import tracks from "./Tracks";
 import AudioPlayer from './components/AudioPlayer';
 import MousePositionTracker from './components/MousePositionTracker';
@@ -13,21 +12,21 @@ function App() {
 
     return (
         <div>
-        <AudioPlayer 
-            tracks={tracks} 
-            iconXPos={randomXPos} 
-            iconYPos={randomYPos} 
-            isFinding={isFinding} 
-            setIsFinding={setIsFinding}
-        />
-        <BlueBird 
-            xPos={randomXPos} 
-            yPos={randomYPos} 
-            isFinding={isFinding} 
-            setIsFinding={setIsFinding} 
-            found={found}
-            setFound={setFound}
-        />
+            <AudioPlayer 
+                tracks={tracks} 
+                iconXPos={randomXPos} 
+                iconYPos={randomYPos} 
+                isFinding={isFinding} 
+                setIsFinding={setIsFinding}
+            />
+            <BlueBird 
+                xPos={randomXPos} 
+                yPos={randomYPos} 
+                isFinding={isFinding} 
+                setIsFinding={setIsFinding} 
+                found={found}
+                setFound={setFound}
+            />
         </div>
     );
 }
